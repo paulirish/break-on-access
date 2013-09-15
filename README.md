@@ -4,7 +4,7 @@
 
     breakOn(document, 'cookie');
 
-> Some JS is getting the `scrollTop` value causing massive Recalculate Styles costs.. Who is the perpetrator?
+> Some JS is getting the `scrollTop` value causing massive Recalculate Styles costs.. Who is the <del>perpetrator</del> <ins>PERFetrator</ins>?
 
     breakOn(document.body,'scrollTop', 'write')
 
