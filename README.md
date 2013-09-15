@@ -8,6 +8,11 @@
 
     debugAccess(document.body,'scrollTop', true)
 
+This works really well as a [snippet in the Chrome DevTools](https://developers.google.com/chrome-developer-tools/docs/authoring-development-workflow#snippets):
+
+<a href="https://developers.google.com/chrome-developer-tools/docs/authoring-development-workflow#snippets">
+![](https://developers.google.com/chrome-developer-tools/docs/authoring-development-workflow/sources_hero.jpg)
+</a>
 
 # History
 
