@@ -11,8 +11,9 @@
 This works really well as a [snippet in the Chrome DevTools](https://developers.google.com/chrome-developer-tools/docs/authoring-development-workflow#snippets):
 
 <a href="https://developers.google.com/chrome-developer-tools/docs/authoring-development-workflow#snippets">
-![](https://developers.google.com/chrome-developer-tools/docs/authoring-development-workflow/sources_hero.jpg)
+![](http://i.imgur.com/snA9unr.png)
 </a>
+
 
 # History
 
@@ -30,4 +31,4 @@ Object.defineProperty(twttr, 'profile', {
 ```
 * I [asked for help](https://plus.google.com/+PaulIrish/posts/38Q3jzWMZ9K) generalizing it and saving the initial value
 * [Dave Methvin answered](https://gist.github.com/1676346) the call
-* 18 months later I forked it and made this repo.
+* 18 months later I forked it, made this repo, and tried to ship it finally.
