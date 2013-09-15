@@ -6,7 +6,7 @@
 
 > Some JS is getting the `scrollTop` value causing massive Recalculate Styles costs.. Who is the <del>perpetrator</del> <ins>PERFetrator</ins>?
 
-    breakOn(document.body,'scrollTop', 'write')
+    breakOn(document.body,'scrollTop', 'read')
 
 This works really well as a [snippet in the Chrome DevTools](https://developers.google.com/chrome-developer-tools/docs/authoring-development-workflow#snippets):
 
@@ -14,6 +14,8 @@ This works really well as a [snippet in the Chrome DevTools](https://developers.
 ![](http://i.imgur.com/snA9unr.png)
 </a>
 
+
+By default, breakOn will only break when JS attempts to change the value of a property. The third optional argument takes 'read' if you'd also like to break when values are read.
 
 # History
 
