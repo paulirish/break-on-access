@@ -31,6 +31,6 @@ Object.defineProperty(twttr, 'profile', {
     }
 })
 ```
-* I [asked for help](https://plus.google.com/+PaulIrish/posts/38Q3jzWMZ9K) generalizing it and saving the initial value
+* I [asked for help](http://i.imgur.com/o6eaMmT.png) generalizing it and saving the initial value
 * [Dave Methvin answered](https://gist.github.com/1676346) the call
 * 18 months later I forked it, made this repo, and tried to ship it finally.
