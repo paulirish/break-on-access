@@ -1,17 +1,18 @@
-function debugAccess(obj, prop, debugGet){
- 
-    var origValue = obj[prop];
- 
+function breakOn(obj, prop, mode){
+
+    var origValue = obj[prop]
+
     Object.defineProperty(obj, prop, {
         get: function () {
-            if ( debugGet )
+            if ( mode == 'read' )
                 debugger;
             return origValue;
         },
         set: function(val) {
             debugger;
-            return origValue = val;
+            obj[prop] = val;
+            return val;
         }
     });
- 
+
 };
