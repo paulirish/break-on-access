@@ -8,10 +8,12 @@ function breakOn(obj, prop, mode, stopped){
         get: function () {
             if ( !stopped && mode == 'read' )
                 debugger;
+            else if ( typeof mode === 'function' && mode(origValue) === true )
+                debugger;
             return origValue;
         },
         set: function(val) {
-            if ( !stopped )
+            if ( !stopped && ( typeof mode !== 'function' || (typeof mode === 'function' && mode(val) === true ) ) )
                 debugger;
             origValue = val;
             return val;
