@@ -10,7 +10,7 @@ function breakOn(obj, prop, mode){
         },
         set: function(val) {
             debugger;
-            obj[prop] = val;
+            origValue = val;
             return val;
         }
     });
