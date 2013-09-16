@@ -1,16 +1,16 @@
 function breakOn(obj, prop, mode){
 
-    var origValue = obj[prop]
+    var value = obj[prop]
 
     Object.defineProperty(obj, prop, {
         get: function () {
             if ( mode == 'read' )
                 debugger;
-            return origValue;
+            return value;
         },
         set: function(val) {
             debugger;
-            obj[prop] = val;
+            value = val;
             return val;
         }
     });
