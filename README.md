@@ -14,8 +14,11 @@ This works really well as a [snippet in the Chrome DevTools](https://developers.
 ![](http://i.imgur.com/snA9unr.png)
 </a>
 
-
 By default, breakOn will only break when JS attempts to change the value of a property. The third optional argument takes 'read' if you'd also like to break when values are read.
+
+# Authors
+
+Dave Methvin, Paul Irish, fat, and these [handsome people](https://github.com/paulirish/break-on-access/contributors)
 
 # History
 
