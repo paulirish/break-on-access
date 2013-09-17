@@ -1,4 +1,4 @@
-function breakOn(obj, propertyName, mode) {
+function breakOn(obj, propertyName, mode, func) {
     // this is directly from https://github.com/paulmillr/es6-shim
     function getPropertyDescriptor(obj, name) {
         var property = Object.getOwnPropertyDescriptor(obj, name);
@@ -22,14 +22,14 @@ function breakOn(obj, propertyName, mode) {
     // write
     if (originalProperty.set) {// accessor property
         newProperty.set = function(val) {
-            if(enabled)
+            if(enabled && (!func || func && func(val)))
                 debugger;
             
             originalProperty.set.call(this, val);
         }
     } else if (originalProperty.writable) {// value property
         newProperty.set = function(val) {
-            if(enabled)
+            if(enabled && (!func || func && func(val)))
                 debugger;
 
             originalProperty.value = val;
@@ -40,7 +40,7 @@ function breakOn(obj, propertyName, mode) {
 
     // read
     newProperty.get = function(val) {
-        if (enabled && mode === 'read')
+          if(enabled && mode === 'read' && (!func || func && func(val)))
             debugger;
 
         return originalProperty.get ? originalProperty.get.call(this, val) : originalProperty.value;
