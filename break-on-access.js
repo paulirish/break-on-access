@@ -15,6 +15,7 @@ function breakOn(obj, propertyName, mode) {
             throw "This property is not writable, so only possible mode is 'read'.";
     }
 
+    var enabled = true;
     var originalProperty = getPropertyDescriptor(obj, propertyName);
     var newProperty = { enumerable: originalProperty.enumerable };
 
@@ -23,7 +24,8 @@ function breakOn(obj, propertyName, mode) {
 
         if (originalProperty.set) {
             newProperty.set = function(val) {
-                debugger;
+                if(enabled)
+                    debugger;
                 originalProperty.set.call(this, val);
             }
         }
@@ -33,7 +35,7 @@ function breakOn(obj, propertyName, mode) {
 
         if (originalProperty.get) {
             newProperty.get = function(val) {
-                if (mode === 'read')
+                if (enabled && mode === 'read')
                     debugger;
 
                 return originalProperty.get.call(this, val);
@@ -45,7 +47,8 @@ function breakOn(obj, propertyName, mode) {
 
         if (originalProperty.writable) {
             newProperty.set = function(val) {
-                debugger;
+                if(enabled)
+                    debugger;
                 originalProperty.value = val;
             }
         }
@@ -54,7 +57,7 @@ function breakOn(obj, propertyName, mode) {
         }
 
         newProperty.get = function(val) {
-            if (mode === 'read')
+            if (enabled && mode === 'read')
                 debugger;
 
             return originalProperty.value;
@@ -62,4 +65,14 @@ function breakOn(obj, propertyName, mode) {
     }
 
     Object.defineProperty(obj, propertyName, newProperty);
+
+    return {
+      disable: function() {
+        enabled = false;
+      },
+
+      enable: function() {
+        enabled = true;
+      }
+    };
 };

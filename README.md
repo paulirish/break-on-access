@@ -16,6 +16,14 @@ This works really well as a [snippet in the Chrome DevTools](https://developers.
 
 By default, breakOn will only break when JS attempts to change the value of a property. The third optional argument takes 'read' if you'd also like to break when values are read.
 
+It is also possible to disable/enable a breakpoint by using methods provided by returned object.
+
+    var bp = breakOn(document, 'cookie');
+    // found it!
+    bp.disable();
+    // something else is up....
+    bp.enable();
+
 # Authors
 
 Dave Methvin, Paul Irish, fat, and these [handsome people](https://github.com/paulirish/break-on-access/contributors)

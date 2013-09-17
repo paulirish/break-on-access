@@ -72,3 +72,15 @@ test("Accessors in protype (get+set)", function() {
         ok(found === enumerable);
     });
 });
+
+test("Disable and reenable breakpoint", function() {
+    var obj = { x: 'before' };
+    var BPx = breakOn(obj, 'x');
+    BPx.disable();
+    obj.x = 'after'; // should not break if DevTools is open
+    BPx.enable();
+    
+    obj.x = 'andagain'; // should break if DevTools is open
+
+    ok(obj.x == "andagain");
+});
