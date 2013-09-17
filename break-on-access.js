@@ -19,49 +19,31 @@ function breakOn(obj, propertyName, mode) {
     var originalProperty = getPropertyDescriptor(obj, propertyName);
     var newProperty = { enumerable: originalProperty.enumerable };
 
-    if (originalProperty.get || originalProperty.set) {
-        // accessor property
-
-        if (originalProperty.set) {
-            newProperty.set = function(val) {
-                if(enabled)
-                    debugger;
-                originalProperty.set.call(this, val);
-            }
+    // write
+    if (originalProperty.set) {// accessor property
+        newProperty.set = function(val) {
+            if(enabled)
+                debugger;
+            
+            originalProperty.set.call(this, val);
         }
-        else  {
-            verifyNotWritable();
-        }
-
-        if (originalProperty.get) {
-            newProperty.get = function(val) {
-                if (enabled && mode === 'read')
-                    debugger;
-
-                return originalProperty.get.call(this, val);
-            }
-        }
-    }
-    else {
-        // value property
-
-        if (originalProperty.writable) {
-            newProperty.set = function(val) {
-                if(enabled)
-                    debugger;
-                originalProperty.value = val;
-            }
-        }
-        else {
-            verifyNotWritable();
-        }
-
-        newProperty.get = function(val) {
-            if (enabled && mode === 'read')
+    } else if (originalProperty.writable) {// value property
+        newProperty.set = function(val) {
+            if(enabled)
                 debugger;
 
-            return originalProperty.value;
+            originalProperty.value = val;
         }
+    } else  {
+        verifyNotWritable();
+    }
+
+    // read
+    newProperty.get = function(val) {
+        if (enabled && mode === 'read')
+            debugger;
+
+        return originalProperty.get ? originalProperty.get.call(this, val) : originalProperty.value;
     }
 
     Object.defineProperty(obj, propertyName, newProperty);
