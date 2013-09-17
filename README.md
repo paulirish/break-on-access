@@ -11,7 +11,7 @@
 This works really well as a [snippet in the Chrome DevTools](https://developers.google.com/chrome-developer-tools/docs/authoring-development-workflow#snippets):
 
 <a href="https://developers.google.com/chrome-developer-tools/docs/authoring-development-workflow#snippets">
-![](http://i.imgur.com/snA9unr.png)
+![](./docs/devtools.png)
 </a>
 
 By default, breakOn will only break when JS attempts to change the value of a property. The third optional argument takes 'read' if you'd also like to break when values are read.
@@ -24,6 +24,19 @@ It is also possible to disable/enable a breakpoint by using methods provided by 
     // something else is up....
     bp.enable();
 
+breakOn also supports Conditional Breakpoints when the 4th argument is a function.
+Say you know a property is being changed after the 4th change.
+
+    var i = 0;
+    var bp = breakOn(document, 'cookie', false, function(v) {
+        return i++ >= 4;
+    });
+
+Or something is leaving a property undefined
+
+    var bp = breakOn(document, 'cookie', false, function(v) {
+        return typeof v === 'undefined';
+    });
 # Authors
 
 Dave Methvin, Paul Irish, fat, and these [handsome people](https://github.com/paulirish/break-on-access/contributors)
