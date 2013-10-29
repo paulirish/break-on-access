@@ -22,29 +22,29 @@ function breakOn(obj, propertyName, mode, func) {
     // write
     if (originalProperty.set) {// accessor property
         newProperty.set = function(val) {
-            if(enabled && (!func || func && func(val)))
+            if (enabled && (!func || func(val)))
                 debugger;
-            
+
             originalProperty.set.call(this, val);
-        }
+        };
     } else if (originalProperty.writable) {// value property
         newProperty.set = function(val) {
-            if(enabled && (!func || func && func(val)))
+            if (enabled && (!func || func(val)))
                 debugger;
 
             originalProperty.value = val;
-        }
+        };
     } else  {
         verifyNotWritable();
     }
 
     // read
     newProperty.get = function(val) {
-          if(enabled && mode === 'read' && (!func || func && func(val)))
+          if (enabled && mode === 'read' && (!func || func(val)))
             debugger;
 
         return originalProperty.get ? originalProperty.get.call(this, val) : originalProperty.value;
-    }
+    };
 
     Object.defineProperty(obj, propertyName, newProperty);
 
@@ -57,4 +57,4 @@ function breakOn(obj, propertyName, mode, func) {
         enabled = true;
       }
     };
-};
+}
