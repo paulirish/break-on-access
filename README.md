@@ -41,6 +41,10 @@ Or something is leaving a property undefined
 
 Dave Methvin, Paul Irish, fat, and these [handsome people](https://github.com/paulirish/break-on-access/contributors)
 
+# Alternatives
+
+[debug_utils](https://github.com/amasad/debug_utils) by @amasad has similar functionality, with a larger scope
+
 # History
 
 * @fat blogged ["debugging javascript"](http://wordsbyf.at/2011/12/23/debugging-javascript-is-a-lame-title/) with an idea (attributed to [@mracus](http://twitter.com/mracus)) I'd talked about but hadn't seen yet
