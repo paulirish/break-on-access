@@ -47,7 +47,7 @@ Dave Methvin, Paul Irish, fat, and these [handsome people](https://github.com/pa
 
 # History
 
-* @fat blogged ["debugging javascript"](http://wordsbyf.at/2011/12/23/debugging-javascript-is-a-lame-title/) with an idea (attributed to [@mracus](http://twitter.com/mracus)) I'd talked about but hadn't seen yet
+* [@fat](https://twitter.com/fat) blogged ["debugging javascript"](http://wordsbyf.at/2011/12/23/debugging-javascript-is-a-lame-title/) with an idea (attributed to [@mracus](http://twitter.com/mracus)) I'd talked about but hadn't seen yet
 
 ```js
 Object.defineProperty(twttr, 'profile', {
