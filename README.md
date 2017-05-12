@@ -11,7 +11,7 @@
 This works really well as a [snippet in the Chrome DevTools](https://developers.google.com/chrome-developer-tools/docs/authoring-development-workflow#snippets):
 
 <a href="https://developers.google.com/chrome-developer-tools/docs/authoring-development-workflow#snippets">
-![](./docs/devtools.png)
+<img src="./docs/devtools.png">
 </a>
 
 By default, breakOn will only break when JS attempts to change the value of a property. The third optional argument takes 'read' if you'd also like to break when values are read.
