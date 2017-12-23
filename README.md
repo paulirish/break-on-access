@@ -44,8 +44,8 @@ Dave Methvin, Paul Irish, fat, and these [handsome people](https://github.com/pa
 
 # Alternatives
 
-[javascript-breakpoint-collection](https://github.com/mattzeunert/javascript-breakpoint-collection) by @mattzeunert. Find what code is causing a browser behavior. Very nice.
-[debug_utils](https://github.com/amasad/debug_utils) by @amasad has similar functionality, with a larger scope
+* [javascript-breakpoint-collection](https://github.com/mattzeunert/javascript-breakpoint-collection) by @mattzeunert. Find what code is causing a browser behavior. Very nice.
+* [debug_utils](https://github.com/amasad/debug_utils) by @amasad has similar functionality, with a larger scope
 
 # History
 
