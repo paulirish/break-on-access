@@ -1,3 +1,6 @@
+/* From:
+   https://github.com/paulirish/break-on-access/blob/master/break-on-access.js
+ */
 function breakOn(obj, propertyName, mode, func) {
     // this is directly from https://github.com/paulmillr/es6-shim
     function getPropertyDescriptor(obj, name) {
